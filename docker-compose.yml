@@ -1,0 +1,14 @@
+version: '3'
+services:
+  webserver:
+    build: . # Dockerfileがあるディレクトリ
+    container_name: nodeSlack
+    tty: true
+    privileged: true # root権限
+    volumes:
+      - ./app:/app
+      - ../../../Data/:/data
+    ports:
+      - "8040:8040"
+      - "3000:3000"
+    #command: /bin/sh -c "cd /app && npm install && npm start"
